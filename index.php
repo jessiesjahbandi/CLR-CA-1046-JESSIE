@@ -1,3 +1,14 @@
+<?php
+include 'connect.php'; // Memasukkan file koneksi
+
+$query = "SELECT id, no_hp, owner FROM dashboard"; // Query untuk mengambil data
+$stmt = $pdo->prepare($query); // Menyiapkan statement
+$stmt->execute(); // Menjalankan statement
+
+// Menyimpan hasil dalam bentuk array
+$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +16,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="output.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Dashboard</title>
 </head>
 
 <body>
-  <!-- component -->
   <div class="min-h-screen bg-gray-50/50">
     <aside
       class="bg-gradient-to-br from-[#e5a046] to-[#e5a046] -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
@@ -233,174 +244,54 @@
           </div>
         </div>
       </nav>
-      <div class="mt-12">
+      <div class="">
         <div class="container mx-auto py-8">
           <div class="overflow-x-auto">
-            <table class="min-w-full border-collapse border border-gray-300">
-              <thead class="bg-gray-200">
-                <tr>
-                  <th
-                    class="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    No ID
-                  </th>
-                  <th
-                    class="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    No HP
-                  </th>
-                  <th
-                    class="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Owner
-                  </th>
-                  <th
-                    class="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Aksi
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="bg-white divide-y divide-gray-300">
-                <!-- Baris Data Contoh -->
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">1</td>
-                  <td class="px-6 py-4 whitespace-nowrap">085762536271</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    Jessyca Adelia
-                  </td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                      Telepon
-                    </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <!-- Baris Data Contoh -->
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">2</td>
-                  <td class="px-6 py-4 whitespace-nowrap">08772635265</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Farsya Tia</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                      Telepon
-                    </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <!-- Baris Data Contoh -->
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">3</td>
-                  <td class="px-6 py-4 whitespace-nowrap">082172837261</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Farda Trinsa</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                      Telepon
-                    </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">4</td>
-                  <td class="px-6 py-4 whitespace-nowrap">088272638163</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Tiara Safira</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                      Telepon
-                    </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">5</td>
-                  <td class="px-6 py-4 whitespace-nowrap">08253651426</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Dika Mahara</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                      Telepon
-                    </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">6</td>
-                  <td class="px-6 py-4 whitespace-nowrap">087726352615</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Santika Mika</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                      Telepon
-                    </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-6 py-4 whitespace-nowrap">7</td>
-                  <td class="px-6 py-4 whitespace-nowrap">0822736817632</td>
-                  <td class="px-6 py-4 whitespace-nowrap">Kia Faiza</td>
-                  <td class="px-6 py-4 whitespace-nowrap">
-                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                      Telepon
-                    </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </button>
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="text-blue-gray-600">
-          <footer class="py-2">
-            <div class="flex w-full flex-wrap items-center justify-center gap-6 px-2 md:justify-between">
-              <p class="block antialiased font-sans text-sm leading-normal font-normal text-inherit">
-
-              </p>
-              <ul class="flex items-center gap-4">
-                <li>
-                  <a href="#" target="_blank"
-                    class="block antialiased font-sans text-sm leading-normal py-0.5 px-1 font-normal text-inherit transition-colors hover:text-blue-500">Blog</a>
-                </li>
-                <li>
-                  <a href="#" target="_blank"
-                    class="block antialiased font-sans text-sm leading-normal py-0.5 px-1 font-normal text-inherit transition-colors hover:text-blue-500">About</a>
-                </li>
-                <li>
-                  <a href="#" target="_blank"
-                    class="block antialiased font-sans text-sm leading-normal py-0.5 px-1 font-normal text-inherit transition-colors hover:text-blue-500">Contact</a>
-                </li>
-              </ul>
+            <div class="flex justify-end my-2">
+                <a href="create.php" class="bg-green-900 hover:bg-green-950 text-white font-bold py-2 px-4 rounded w-36 text-center">Create</a>
             </div>
-          </footer>
+            <div class="container mx-auto py-2">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full border-collapse border border-gray-300">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    No ID
+                                </th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    No HP
+                                </th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    Owner
+                                </th>
+                                <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                    ACTION
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-300">
+                          <?php
+                          if (count($results) > 0) {
+                              foreach ($results as $row) {
+                                  echo "<tr>";
+                                  echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row["id"] . "</td>";
+                                  echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row["no_hp"] . "</td>";
+                                  echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row["owner"] . "</td>";
+                                  echo "<td class='px-6 py-4 whitespace-nowrap'>
+                                          <a href='update.php?id=" . $row["id"] . "' class='bg-gradient-to-br from-[#e5a046] to-[#e5a046] hover:from-[#d97706] hover:to-[#b45309] active:bg-white/30 text-white font-bold py-2 px-4 rounded inline-block'>Edit</a>
+                                          <a href='delete.php?id=" . $row["id"] . "' class='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block' onclick='return confirm(\"Are you sure you want to delete this item?\")'>Delete</a>
+                                        </td>";
+                                  echo "</tr>";
+                              }
+                          } else {
+                              echo "<tr><td colspan='4'>Tidak ada data yang dapat ditampilkan.</td></tr>";
+                          }
+                          ?>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
