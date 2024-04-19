@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="flex items-center justify-between">
                     <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-gray-600">
                         Tambahkan
                     </button>
                     <button type="button" id="btnKembali"
