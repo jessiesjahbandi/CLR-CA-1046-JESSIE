@@ -100,9 +100,9 @@
               </div>
             </div>
             <a class="px-4 py-2 mt-2 text-sm text-white font-semibold bg-[#e5a046] rounded-lg  md:mt-0 md:ml-4 hover:text-gray-900 focus:text-black hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-              href="login.html">Login</a>
+              href="<?= urlpath('')?>">Login</a>
             <a class="px-4 py-2 mt-2 text-sm text-white font-semibold bg-[#e5a046] rounded-lg  md:mt-0 md:ml-4 hover:text-gray-900 focus:text-black hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-              href="register.html">Register</a>
+              href="<?= urlpath('register')?>">Register</a>
           </nav>
         </div>
       </div>
@@ -121,7 +121,7 @@
             <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
             <label class="font-semibold text-sm text-gray-600 pb-1 block">Konfirmasi Password</label>
             <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
-            <a class="flex text-center" href="login.html"><button type="button"
+            <a class="flex text-center" href="<?= urlpath('')?>"><button type="button"
                 class="transition duration-200 bg-[#e5a046] hover:bg-[#e5a046] focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-black w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
                 <span class="inline-block mr-2 text-white">Daftar</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="whiter"
@@ -131,7 +131,7 @@
             <div class="flex items-center justify-center mt-3">
               <p>
                 Sudah punya akun?
-                <a class="text-[#e5a046] font-semibold" href="login.html">Login</a>
+                <a class="text-[#e5a046] font-semibold" href="<?= urlpath('')?>">Login</a>
               </p>
             </div>
           </div>
@@ -148,20 +148,6 @@
                   <span class="inline-block ml-1">Help</span>
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="py-5">
-          <div class="grid grid-cols-2 gap-1">
-            <div class="text-center sm:text-left whitespace-nowrap">
-              <a href="login.html"><button
-                  class="transition duration-200 mx-5 px-5 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-200 focus:outline-none focus:bg-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="w-4 h-4 inline-block align-text-top">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                  </svg>
-                </button></a>
             </div>
           </div>
         </div>
