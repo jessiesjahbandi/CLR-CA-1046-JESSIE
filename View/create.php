@@ -1,17 +1,3 @@
-<?php
-include 'connect.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $no_hp = $_POST['no_hp'];
-    $owner = $_POST['owner'];
-
-    $query = $pdo->prepare("INSERT INTO dashboard (no_hp, owner) VALUES (?, ?)");
-    $query->execute([$no_hp, $owner]);
-
-    header("Location: index.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="bg-white p-6 rounded-lg shadow-lg m-4 max-w-md w-full">
             <h2 class="text-center text-2xl font-semibold text-gray-800 mb-4">Tambahkan Kontak Baru</h2>
             <p class="text-center text-gray-600 mb-4">Mohon isi form untuk menambahkan kontak baru.</p>
-            <form action="create.php" method="post" class="space-y-4">
+            <form action="<?= urlpath('create')?>" method="POST" class="space-y-4">
                 <div>
                     <label for="no_hp" class="block text-gray-700 text-sm font-bold mb-2">Nomor Handphone:</label>
                     <input type="text" name="no_hp" id="no_hp" required
@@ -39,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="text" name="owner" id="owner" required
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
-                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-between gap-2">
                     <button type="submit"
-                    class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-gray-600">
+                    class="w-full px-4 py-2 border text-white bg-gradient-to-br from-[#e5a046] to-[#e5a046] hover:from-[#d97706] hover:to-[#b45309] font-bold rounded-md focus:outline-none focus:ring-1 focus:ring-gray-600">
                         Tambahkan
                     </button>
-                    <button type="button" id="btnKembali"
+                    <button type="button" id="btnKembali" onclick="window.location='<?= urlpath('dashboard') ?>'"
                     class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        <a href="index.php">Kembali</a>
+                        Kembali
                     </button>
                 </div>
             </form>

@@ -72,21 +72,23 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES
 (1, 'jessyca', 'jessyca@gmail.com', 'jessyca123'),
-(2, 'agus123', 'agus123@example.com', 'password123'),
-(3, 'budi456', 'budi456@example.com', 'password456'),
-(4, 'citra789', 'citra789@example.com', 'password789'),
-(5, 'dewi987', 'dewi987@example.com', 'password987'),
-(6, 'eko234', 'eko234@example.com', 'password234'),
-(7, 'fani567', 'fani567@example.com', 'password567'),
-(8, 'gita890', 'gita890@example.com', 'password890'),
-(9, 'hadi123', 'hadi123@example.com', 'password123'),
-(10, 'indah456', 'indah456@example.com', 'password456'),
-(11, 'joko789', 'joko789@example.com', 'password789'),
-(12, 'kurnia987', 'kurnia987@example.com', 'password987'),
-(13, 'lia234', 'lia234@example.com', 'password234'),
-(14, 'maman567', 'maman567@example.com', 'password567'),
-(15, 'nina890', 'nina890@example.com', 'password890'),
-(16, 'oscar123', 'oscar123@example.com', 'password123');
+(2, 'farsya123', 'farsya123@example.com', 'password123'),
+(3, 'farda456', 'farda456@example.com', 'password123'),
+(4, 'agus123', 'agus123@example.com', 'password123'),
+(5, 'budi456', 'budi456@example.com', 'password456'),
+(6, 'citra789', 'citra789@example.com', 'password789'),
+(7, 'dewi987', 'dewi987@example.com', 'password987'),
+(8, 'eko234', 'eko234@example.com', 'password234'),
+(9, 'fani567', 'fani567@example.com', 'password567'),
+(10, 'gita890', 'gita890@example.com', 'password890'),
+(11, 'hadi123', 'hadi123@example.com', 'password123'),
+(12, 'indah456', 'indah456@example.com', 'password456'),
+(13, 'joko789', 'joko789@example.com', 'password789'),
+(14, 'kurnia987', 'kurnia987@example.com', 'password987'),
+(15, 'lia234', 'lia234@example.com', 'password234'),
+(16, 'maman567', 'maman567@example.com', 'password567'),
+(17, 'nina890', 'nina890@example.com', 'password890'),
+(18, 'oscar123', 'oscar123@example.com', 'password123');
 
 --
 -- Indexes for dumped tables

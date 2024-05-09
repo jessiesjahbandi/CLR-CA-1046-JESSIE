@@ -112,17 +112,18 @@
         <h1 class="font-bold text-center text-2xl mb-5">Masuk ke Akun </h1>
         <div class="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
           <div class="px-5 py-7">
-            <label class="font-semibold text-sm text-gray-600 pb-1 block">E-mail / Username</label>
-            <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
-            <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
-            <input type="text" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
-            <a class="flex text-center" href="<?= urlpath('dashboard')?>"><button type="button"
-                class="transition duration-200 bg-[#e5a046] hover:bg-[#e5a046] focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-black w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
-                <span class="inline-block mr-2 text-white">Login</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="whiter"
-                  class="w-4 h-4 inline-block">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg></button></a>
+          <form action="<?= urlpath('login') ?>" method="POST">
+              <label class="font-semibold text-sm text-gray-600 pb-1 block">E-mail / Username</label>
+              <input type="text" name="usernameOrEmail" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+              <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
+              <input type="password" name="password" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+              <button type="submit" class="transition duration-200 bg-[#e5a046] hover:bg-[#e5a046] focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-black w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold inline-block text-white text-center">
+                  Login
+              </button>
+          </form>
+
+
+            
             <div class="flex items-center justify-center mt-3">
               <p>
                 Belum punya akun?

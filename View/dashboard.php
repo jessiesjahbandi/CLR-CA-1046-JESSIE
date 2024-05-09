@@ -1,14 +1,3 @@
-<?php
-include 'connect.php'; // Memasukkan file koneksi
-
-$query = "SELECT id, no_hp, owner FROM dashboard"; // Query untuk mengambil data
-$stmt = $pdo->prepare($query); // Menyiapkan statement
-$stmt->execute(); // Menjalankan statement
-
-// Menyimpan hasil dalam bentuk array
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -248,7 +237,7 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="container mx-auto py-8">
           <div class="overflow-x-auto">
             <div class="flex justify-end my-2">
-                <a href="create.php" class="bg-green-900 hover:bg-green-950 text-white font-bold py-2 px-4 rounded w-36 text-center">Create</a>
+                <a href="<?= urlpath('create')?>" class="bg-green-900 hover:bg-green-950 text-white font-bold py-2 px-4 rounded w-36 text-center">Create</a>
             </div>
             <div class="container mx-auto py-2">
                 <div class="overflow-x-auto">
@@ -278,8 +267,8 @@ $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                   echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row["no_hp"] . "</td>";
                                   echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row["owner"] . "</td>";
                                   echo "<td class='px-6 py-4 whitespace-nowrap'>
-                                          <a href='update.php?id=" . $row["id"] . "' class='bg-gradient-to-br from-[#e5a046] to-[#e5a046] hover:from-[#d97706] hover:to-[#b45309] active:bg-white/30 text-white font-bold py-2 px-4 rounded inline-block'>Edit</a>
-                                          <a href='delete.php?id=" . $row["id"] . "' class='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block' onclick='return confirm(\"Are you sure you want to delete this item?\")'>Delete</a>
+                                          <a href='update?id=" . $row["id"] . "' class='bg-gradient-to-br from-[#e5a046] to-[#e5a046] hover:from-[#d97706] hover:to-[#b45309] active:bg-white/30 text-white font-bold py-2 px-4 rounded inline-block'>Edit</a>
+                                          <a href='delete?id=" . $row["id"] . "' class='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block' onclick='return confirm(\"Are you sure you want to delete this item?\")'>Delete</a>
                                         </td>";
                                   echo "</tr>";
                               }
