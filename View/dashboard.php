@@ -273,7 +273,7 @@
                                   echo "</tr>";
                               }
                           } else {
-                              echo "<tr><td colspan='4'>Tidak ada data yang dapat ditampilkan.</td></tr>";
+                              echo "<tr><td colspan='4' class='px-6 py-4 whitespace-nowrap text-center'>Tidak Memiliki Akun Kontak. Silahkan Tambahkan Data</td></tr>";
                           }
                           ?>
                       </tbody>

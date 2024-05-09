@@ -3,14 +3,10 @@ include_once 'Model/dashboard.php';
 
 class dashboardController {
     static function index() {
-        // Membuat objek koneksi
         global $conn;
-
-        // Membuat objek model dan meneruskan koneksi
+        $userId = $_SESSION['userId'];
         $model = new dashboard($conn);
-        
-        // Memanggil method untuk mendapatkan data dari model
-        $results = $model->index();
+        $results = $model->index($userId);
         
         view('dashboard',['results' => $results]);
     }
@@ -19,8 +15,10 @@ class dashboardController {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $no_hp = $_POST['no_hp'];
             $owner = $_POST['owner'];
+            $userId = $_SESSION['userId'];
+
             $model = new dashboard();
-            $rowCount = $model->createData($no_hp, $owner);
+            $rowCount = $model->createData($no_hp, $owner,$userId);
 
             header("Location: dashboard");
             exit();
@@ -63,14 +61,3 @@ class dashboardController {
     }
     
 }
-// <?php
-
-    
-//     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     } else {
-//         $id = $_GET['id'];
-//         $query = $pdo->prepare("SELECT * FROM dashboard WHERE id = ?");
-//         $query->execute([$id]);
-//         $kontak = $query->fetch(PDO::FETCH_ASSOC);
-//     }
-// 
