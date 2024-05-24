@@ -111,26 +111,50 @@
       <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
         <h1 class="font-bold text-center text-2xl mb-5">Masuk ke Akun </h1>
         <div class="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
-          <div class="px-5 py-7">
-          <form action="<?= urlpath('login') ?>" method="POST">
-              <label class="font-semibold text-sm text-gray-600 pb-1 block">E-mail / Username</label>
-              <input type="text" name="usernameOrEmail" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
-              <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
-              <input type="password" name="password" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
-              <button type="submit" class="transition duration-200 bg-[#e5a046] hover:bg-[#e5a046] focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-black w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold inline-block text-white text-center">
-                  Login
-              </button>
-          </form>
-
-
-            
-            <div class="flex items-center justify-center mt-3">
-              <p>
-                Belum punya akun?
-                <a class="text-[#e5a046] font-semibold" href="<?= urlpath('register')?>">Daftar Sekarang</a>
-              </p>
+          <div>
+            <?php 
+              $errors = [];
+              if (isset($_SESSION['errors'])) {
+                  $errors = $_SESSION['errors'];
+                  unset($_SESSION['errors']); // Hapus pesan kesalahan dari session setelah mengambilnya
+              } 
+            ?>
+            <!-- Display errors if any -->
+            <?php if (!empty($errors)): ?>
+              <div id="alert-box" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-5" role="alert">
+                <strong class="font-bold">Terjadi Kesalahan:</strong>
+                <ul class="list-disc pl-5">
+                  <?php foreach ($errors as $error): ?>
+                    <li><?= htmlspecialchars($error) ?></li>
+                  <?php endforeach; ?>
+                </ul>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3 flex items-center">
+                  <svg onclick="hideAlert()" class="fill-current h-6 w-6 text-red-500 cursor-pointer" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <title>Close</title>
+                    <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/>
+                  </svg>
+                </span>
+              </div>
+            <?php endif; ?>
+            <div class="px-5 py-7">
+              <form action="<?= urlpath('login') ?>" method="POST">
+                  <label class="font-semibold text-sm text-gray-600 pb-1 block">E-mail / Username</label>
+                  <input type="text" name="usernameOrEmail" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" value="<?= htmlspecialchars($_POST['usernameOrEmail'] ?? '') ?>"/>
+                  <label class="font-semibold text-sm text-gray-600 pb-1 block">Password</label>
+                  <input type="password" name="password" class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" />
+                  <button type="submit" class="transition duration-200 bg-[#e5a046] hover:bg-[#e5a046] focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-black w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold inline-block text-white text-center">
+                      Login
+                  </button>
+              </form>
+              <div class="flex items-center justify-center mt-3">
+                <p>
+                  Belum punya akun?
+                  <a class="text-[#e5a046] font-semibold" href="<?= urlpath('register')?>">Daftar Sekarang</a>
+                </p>
+              </div>
             </div>
           </div>
+          
           <div class="py-5">
             <div class="grid grid-cols-2 gap-1">
               <div class="text-center sm:text-left whitespace-nowrap">
@@ -162,6 +186,11 @@
     </div>
   </div>
   </div>
+  <script>
+    function hideAlert() {
+      document.getElementById('alert-box').style.display = 'none';
+    }
+  </script>
 </body>
 
 </html>

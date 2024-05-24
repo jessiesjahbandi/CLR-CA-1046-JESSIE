@@ -1,14 +1,16 @@
 <?php
 
 
-route('/', 'get', function () {
-    view('login');
-});
+
+route('', 'get' , 'AuthController::login');
 route('login', 'post' , 'AuthController::login');
 
-route('register', 'get', function () {
-    view('register');
-});
+// route('register', 'get', function () {
+//     view('register');
+// });
+route('register', 'get', 'AuthController::register');
+
+route('register', 'post' , 'AuthController::register');
 
 //show dashboard
 route('dashboard','get' , 'dashboardController::index');
